@@ -1,21 +1,20 @@
 package nju.ztww.ui.finance;
 
 import java.awt.Color;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
-import confligUI.MyLabel;
-import confligUI.MyTextField;
 import nju.ztww.service.FinanceService;
 import nju.ztww.serviceimpl.FinanceServiceImpl;
 import nju.ztww.vo.CollectionVO;
+import confligUI.MyLabel;
+import confligUI.MyTextField;
 
 public class EditCollection extends EditPanel{
 	 private  Header header = new Header();
@@ -24,10 +23,10 @@ public class EditCollection extends EditPanel{
      public EditCollection(String[] strings, Object[][] objects) {
 		// TODO Auto-generated constructor stub
     	 super( strings, objects);
-    	 this.setBackground(new Color(250, 240, 230));
-    	 this.scrollPane.setBounds(0, 25, 750, 395);//690->750
-    	 this.scrollPane.setBackground(new Color(250, 240, 230));
-    	 this.header.setBounds(0, 0, 750, 25);  //690->750
+    	// this.setBackground(new Color(250, 240, 230));
+    	 this.scrollPane.setBounds(0, 25, 670, 325);//690->750
+    	// this.scrollPane.setBackground(new Color(250, 240, 230));
+    	 this.header.setBounds(0, 0, 670, 25);  //690->750
     	 this.add(header);
     	 this.remove(button1);
     	 this.remove(button2);
@@ -42,21 +41,30 @@ public class EditCollection extends EditPanel{
      
     public class Header extends JPanel{
     	
-    	public MyLabel label1  = new MyLabel("日期：",JLabel.CENTER);
-    	public MyLabel label2 = new MyLabel("营业厅编号：",JLabel.CENTER);
-    	public JButton button1  = new JButton("查看");
+    	public MyLabel label1  = new MyLabel("日期：",JLabel.LEFT);
+    	public MyLabel label2 = new MyLabel("营业厅编号：",JLabel.LEFT);
+    	public JButton button1  = new JButton("");
     	public MyTextField text1 = new MyTextField();
     	public MyTextField text2 = new MyTextField();
     	private Listener listener = new Listener();
     	public Header(){
-    		this.setLayout(new GridLayout(1,5));
-    		this.setBackground(new Color(250, 240, 230));
+    		this.setLayout(null);
+    		label1.setBounds(0, 0, 80, 25);
+    		text1.setBounds(70,0,100,25);
+    		label2.setBounds(170,0,100,25);
+    		text2.setBounds(260,0,100,25);
+    		button1.setBounds(570,0,100,25);
+    		button1.setIcon(new ImageIcon("photo2/view.png"));
+    		//this.setBackground(new Color(250, 240, 230));
+    		label1.setForeground(new Color(255,255,255));
+    		label2.setForeground(new Color(255,255,255));
     		this.add(label1);
     		this.add(text1);
     		this.add(label2);
     		this.add(text2);
     		this.add(button1);
     		button1.addActionListener(listener);
+    		this.setOpaque(false);
     	}
     	
     	  public class Listener implements ActionListener{

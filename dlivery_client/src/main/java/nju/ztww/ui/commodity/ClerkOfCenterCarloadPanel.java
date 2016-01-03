@@ -69,7 +69,7 @@ public class ClerkOfCenterCarloadPanel extends JPanel{
 	
 	private MyButton addButton=new MyButton('b');
 	private MyButton findSureButton=new MyButton();
-	private MyButton findButton=new MyButton('d');
+	private MyButton findButton=new MyButton('b');
 	private MyButton deleteButton=new MyButton('c');
 	private MyButton sendButton=new MyButton('a');
 	private MyButton sureButton=new MyButton();
@@ -100,9 +100,9 @@ public class ClerkOfCenterCarloadPanel extends JPanel{
 //		deleteButton.setIcon(null);
 //		sendButton.setBounds(500, 420, 110, 38);
 //		sendButton.setIcon(null);
-		findButton.setBounds(530, 400, 80, 30);
+//		findButton.setBounds(50, 370, 80, 30);
 //		findButton.setIcon(null);
-
+		findButton.setIcon(new ImageIcon("photo/search.png"));
 		this.setLayout(null);
 		this.add(findButton);
 		this.add(deleteButton);
@@ -171,9 +171,9 @@ public class ClerkOfCenterCarloadPanel extends JPanel{
 						dlg.setSize(new Dimension(350, 150));
 			            dlg.setLocation((screenSize.width-700)/2, (screenSize.height-600)/2);
 			            findtextArea.setBounds(50, 30, 150, 30);
-			            findSureButton.setBounds(240, 30, 70, 30);
+			            findSureButton.setBounds(240, 30, 80, 30);
 			            findSureButton.addActionListener(listener2);
-			            findSureButton.setIcon(new ImageIcon("photo/BusinessSure.png"));
+			            findSureButton.setIcon(new ImageIcon("photo/Sure.png"));
 			            dlg.add(findSureButton);
 			            dlg.add(findtextArea);
 			            dlg.setLayout(null);

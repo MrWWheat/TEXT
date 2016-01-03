@@ -20,27 +20,27 @@ public class MenuePanel extends JPanel {
        MyButton businessButton = new MyButton(4);
        MyButton initButton = new MyButton(5);
        MyButton exportFormButton = new MyButton(6);
-       MyButton personInfoButton = new MyButton(7);
-       MyButton checkOrderButton  = new MyButton(8);
-       MyButton logoutButton = new MyButton(9);
+       MyButton personInfoButton = new MyButton(6);
+       MyButton checkOrderButton  = new MyButton(7);
+       MyButton logoutButton = new MyButton(8);
        
 
 	   final ImageIcon accout = new ImageIcon("photo/account.png");
 	   final ImageIcon collection = new ImageIcon("photo/collection.png");
 	   final ImageIcon payment = new ImageIcon("photo/payment.png");
-	   final ImageIcon benefit = new ImageIcon("photo/benefit.png");
+	   final ImageIcon benefit = new ImageIcon("photo/CostForm.png");
 	   final ImageIcon init = new ImageIcon("photo/init.png");
-	   final ImageIcon business = new ImageIcon("photo/business.png");
+	   final ImageIcon business = new ImageIcon("photo/StateForm.png");
 	   ImageIcon exportForm = new ImageIcon("photo/ExportForm.png");
 	   ImageIcon perIn = new ImageIcon("photo/PersonInfo.png");
 	   ImageIcon check = new ImageIcon("photo/CheckOrder.png");
 	   ImageIcon lo = new ImageIcon("photo/Logout.png");
 	   ImageIcon accout2 = new ImageIcon("photo/account2.png");
-	  ImageIcon collection2 = new ImageIcon("photo/collection2.png");
+	   ImageIcon collection2 = new ImageIcon("photo/collection2.png");
 	   ImageIcon payment2 = new ImageIcon("photo/payment2.png");
-	   ImageIcon benefit2 = new ImageIcon("photo/benefit2.png");
+	   ImageIcon benefit2 = new ImageIcon("photo/CostForm2.png");
 	   ImageIcon init2 = new ImageIcon("photo/init2.png");
-	   ImageIcon business2 = new ImageIcon("photo/business2.png");
+	   ImageIcon business2 = new ImageIcon("photo/StateForm2.png");
 	   ImageIcon exportForm2 = new ImageIcon("photo/ExportForm2.png");
 	   ImageIcon perIn2 = new ImageIcon("photo/PersonInfo2.png");
 	   ImageIcon check2 = new ImageIcon("photo/CheckOrder2.png");
@@ -81,7 +81,7 @@ public class MenuePanel extends JPanel {
     	   this.add(collectionButton);
     	   this.add(paymentButton);
     	   this.add(initButton);
-    	   this.add(exportFormButton);
+    	  // this.add(exportFormButton);
     	   this.add(personInfoButton);
     	   this.add(checkOrderButton);
     	   this.add(logoutButton);

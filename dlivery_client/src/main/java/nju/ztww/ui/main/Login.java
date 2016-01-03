@@ -1,14 +1,19 @@
 package nju.ztww.ui.main;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -19,8 +24,6 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-import confligUI.MyTextField;
-
 
 //最近修改： 王焕 11-17
 //date 11-18 name wh
@@ -30,14 +33,16 @@ public class Login extends JFrame{
 	//
 	
 	int x = 100;
-	int y = 100;
-	int iy = 100;
+	int y = 300;
+	int iy = 300;
 	//
 	Image icon1=new ImageIcon("photo2/feidie.png").getImage();
-	Border border2 = new LineBorder(new Color(232,181,53), 1, true);
-	Border border1 = new LineBorder(new Color(155,122,90),1,true);
+	//Image icon2=new ImageIcon("photo/Login2.png").getImage();
+	Border border2 = new LineBorder(new Color(44,76,120), 1, true);
+	Border border1 = new LineBorder(new Color(225,225,225),1,true);
 	JLabel theme = new JLabel();
 	JLabel bg = new JLabel();
+	JLabel orderT = new JLabel();
 	JLabel idlLabel= new JLabel();
 	JLabel passwordLabel = new JLabel();
 	JTextField id = new JTextField();
@@ -51,6 +56,8 @@ public class Login extends JFrame{
 	public static JFrame frame;
 	public static JPanel panel;
 	private MoniDelUI moni;
+	private Font myfont = new Font("微软雅黑", Font.PLAIN, 18);
+	private Color mycolor = new Color(225, 225, 225);
 	
 	public Login(){
 		
@@ -68,25 +75,38 @@ public class Login extends JFrame{
 		panel.setBounds(0, 0, 900, 600);
 		
 		
-		theme.setIcon(new ImageIcon("photo/system.png"));
-		theme.setBounds(200, 20, 300, 100);
+//		theme.setIcon(new ImageIcon("photo/system.png"));
+//		theme.setBounds(200, 20, 300, 100);
 	
-		bg.setIcon(new ImageIcon("photo/bg.png"));
+		bg.setIcon(new ImageIcon("photo/Login2(1).png"));
 		bg.setBounds(0, 0, 900, 600);
 		
-		idlLabel.setIcon(new ImageIcon("photo/id.gif"));
-		idlLabel.setBounds(505, 140, 120, 40);
-		id.setBounds(635, 150, 150, 30);
+//		idlLabel.setIcon(new ImageIcon("photo/id.gif"));
+		idlLabel.setText("ID:");
+		idlLabel.setFont(myfont);
+		idlLabel.setForeground(mycolor);
 		
-		passwordLabel.setIcon(new ImageIcon("photo/password.gif"));
-		passwordLabel.setBounds(505, 210, 120, 40);
-		password.setBounds(635, 220, 150, 30);
-		loginbButton.setIcon(new ImageIcon("photo/login1.png"));
-		loginbButton.setBounds(790, 210, 50, 50);
+		idlLabel.setBounds(585, 170, 120, 40);
+		id.setBounds(645, 175, 185, 30);
 		
-		order.setBounds(585, 320, 200, 30);
-		searchButton.setIcon(new ImageIcon("photo/searchOrder.gif"));
-		searchButton.setBounds(790, 320, 120, 30);
+//		passwordLabel.setIcon(new ImageIcon("photo/password.gif"));
+		passwordLabel.setText("密码:");
+		passwordLabel.setFont(myfont);
+		passwordLabel.setForeground(mycolor);
+		passwordLabel.setBounds(575, 225, 135, 40);
+		password.setBounds(645, 230, 185, 30);
+		loginbButton.setIcon(new ImageIcon("photo/login.png"));
+		loginbButton.setBounds(760, 280, 80, 30);
+		
+//		orderT.setIcon(new ImageIcon("photo2/OrderNum.png"));
+		orderT.setText("订单号：");
+		orderT.setFont(myfont);
+		orderT.setForeground(mycolor);
+		orderT.setBounds(575, 440, 105, 30);
+		panel.add(orderT);
+		order.setBounds(665, 440, 170, 30);
+		searchButton.setIcon(new ImageIcon("photo/search.png"));
+		searchButton.setBounds(760, 490, 80, 30);
 		
 		id.setBorder(border1);
 		id.addMouseListener(ad1);
@@ -103,8 +123,9 @@ public class Login extends JFrame{
 		panel.add(loginbButton);
 		panel.add(order);
 		panel.add(searchButton);
-		panel.add(bg);
+		//panel.add(bg);
 		startRun();
+		panel.add(bg);
 //		moni = new MoniDelUI();
 //		moni.setBounds(0, 250, 500, 150);
 		uiListener = new ListenerUI(this);
@@ -170,6 +191,7 @@ public class Login extends JFrame{
 	}
 	public static void main(String[] args) {
 		new Login();
+
 	}
 	
 	MouseListener ad1 = new MouseListener() {
@@ -276,13 +298,14 @@ public class Login extends JFrame{
 		public void run() {
 			// TODO Auto-generated method stub
 				// TODO Auto-generated method stub
-				while(x>1000){
-				car.repaint();
-				home.repaint();
+				while(true){
+					panel.repaint();
+//				car.repaint();
+//				home.repaint();
 				
-				
-					car.repaint();
-					home.repaint();
+//				
+//					car.repaint();
+//					home.repaint();
 					car.setBounds(x, y, 60, 40);
 					x+=5;
 					if(x>260){
@@ -321,7 +344,68 @@ public class Login extends JFrame{
 	}
 
 	
-	
-	
+//	public void paintComponent(Graphics g){
+//		super.paintComponent(g);
+//		g.drawImage(icon2, 0, 0, 900, 600, null);
+//	}
+	public void xiaoGuo(final JPanel panel,final JPanel centerPanel) {
+		panel.setBounds(0, 0, centerPanel.getWidth(), centerPanel.getHeight());// 设置滑动初始位置
+		int count = centerPanel.getComponentCount();// 获取centerPanel中控件数
+		List list = new ArrayList();//
+		for (Component comp : centerPanel.getComponents()) {
+			list.add(comp);// 给list赋值
+		}
+		if (count > 0) {// 如果centerPanel中控件数大于0就执行效果
+			for (int i = 0; i < count; i++) {
+				Component comp = centerPanel.getComponent(i);// 获得该位置的控件
+
+				if (comp instanceof JPanel) {// 判断控件类型
+					final JPanel currentPanel = (JPanel) comp;// 获得当前panel
+					if (currentPanel != panel) {
+
+						new Thread() {
+
+							public void run() {
+
+								Rectangle rec = currentPanel.getBounds();// 获得当前面板的位置信息
+								int y = -centerPanel.getWidth();
+
+								for (int i = 0; i <= centerPanel.getWidth(); i += 20) {
+									// 设置面板位置
+									currentPanel.setBounds(i, 0,
+											centerPanel.getWidth(),
+											centerPanel.getHeight());
+									panel.setBounds(y, 0,
+											centerPanel.getWidth(),
+											centerPanel.getHeight());
+									try {
+										Thread.sleep(10);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									y += 20;
+								}
+
+								centerPanel.remove(currentPanel);// 移除當前面板
+
+								panel.setBounds(0, 0, centerPanel.getWidth(),
+										centerPanel.getHeight());
+
+							}
+						}.start();
+						break;
+					}
+				}
+			}
+		}
+//
+//		if (!list.contains(panel)) {
+//			centerPanel.add(panel);// 添加要切换的面板
+//		}
+
+		centerPanel.validate();// 重构内容面板
+		centerPanel.repaint();// 重绘内容面板
+	}
 
 }

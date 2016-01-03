@@ -1,12 +1,11 @@
 package nju.ztww.ui.finance;
 
-import java.awt.Toolkit;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import nju.ztww.ui.user.PersonalMesageUI;
 import nju.ztww.ui.user.ThemeLabelUI;
 //date 11-18 name wh//
 public class FinanceUI  {
@@ -44,12 +43,13 @@ public class FinanceUI  {
 //		frame.getContentPane().add(menuePanel);
 //		frame.setVisible(true);
     	paymentPanel.add(paymentPanel.button3);
+    	paymentPanel.button1.setIcon(new ImageIcon("photo/submit.png"));
     	personInfo.setVisible(false);
     }
     
     public void setPanelBounds(){
-    	menuePanel.setBounds(0, 100, 150, 500);
-    	Theme.setBounds(150, 0, 750, 60);
+    	menuePanel.setBounds(25, 150, 150, 400);
+    	Theme.setBounds(200, 0, 670, 120);
     	personInfo.setBounds(150, 100, 750, 450);
     	//
 //    	accountPanel.setBounds(210,60,690,480);
@@ -73,11 +73,12 @@ public class FinanceUI  {
     	//-------
     	
     	for(EditPanel p : panelList){
-    		p.setBounds(150,100,750,450);
+    		p.setBounds(200,120,670,410);
     		//frame.getContentPane().add(p);
     		p.setVisible(false);
     		
     	}
+    	personInfo.setOpaque(false);
     	accountPanel.setVisible(true);
     	menuePanel.accountButton.addActionListener(new ListenerTable(frame,accountPanel,panelList,0));
     	menuePanel.paymentButton.addActionListener(new ListenerTable(frame,paymentPanel,panelList,0));
@@ -98,6 +99,7 @@ public class FinanceUI  {
     }
     
     public ArrayList<JPanel> getPanelList(){
+    	//list.add(new JPanel());
     	list.add(Theme);
     	list.add(menuePanel);
     	//list.add(personInfo);
